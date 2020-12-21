@@ -7,25 +7,25 @@ let calculate = document.getElementById('start'),
  buttonIncomeAdd = document.getElementsByTagName('button')[0],
  buttonExpensesAdd = document.getElementsByTagName('button')[1],
  depositCheck = document.querySelector('#deposit-check'),
- additionalIncomeItemTitle = document.querySelectorAll('.additional_income-item-title'),
- additionalIncomeItem = document.querySelectorAll('.additional_income-item'),
- resultBudgetMonth = document.getElementsByClassName('budget_month-value'),
- resultBudgetDay = document.getElementsByClassName('budget_day-value'),
- resultExpensesMonth = document.getElementsByClassName('expenses_month-value'),
- resultAdditionalncome = document.getElementsByClassName('additional_income-value'),
- resultlncomePeriod = document.getElementsByClassName('income_period-value'),
- resultTargetMmonth = document.getElementsByClassName('target_month-value'),
+ additionalIncomeItemTitle = document.querySelectorAll('.additional_income-item-title')[0],
+ additionalIncomeItem = document.querySelectorAll('.additional_income-item')[0],
+ resultBudgetMonth = document.getElementsByClassName('budget_month-value')[0],
+ resultBudgetDay = document.getElementsByClassName('budget_day-value')[0],
+ resultExpensesMonth = document.getElementsByClassName('expenses_month-value')[0],
+ resultAdditionalncome = document.getElementsByClassName('additional_income-value')[0],
+ resultlncomePeriod = document.getElementsByClassName('income_period-value')[0],
+ resultTargetMmonth = document.getElementsByClassName('target_month-value')[0],
 
- salaryAmount = document.getElementsByClassName('salary-amount'),
- incomeItemTitle = document.getElementsByClassName('income-item-title'),
- incomeAmount = document.getElementsByClassName('income-amount'),
- expensesItemTitle = document.getElementsByClassName('expenses-item-title'),
- expensesAmount = document.getElementsByClassName('expenses-amount'),
- additionalExpensesItem = document.getElementsByClassName('additional_expenses-item'),
- depositAmount = document.getElementsByClassName('deposit-amount'),
- depositPercent = document.getElementsByClassName('deposit-percent'),
- targetAmount = document.getElementsByClassName('target-amount'),
- periodSelect = document.getElementsByClassName('period-select');
+ salaryAmount = document.getElementsByClassName('salary-amount')[0],
+ incomeItemTitle = document.getElementsByClassName('income-item-title')[0],
+ incomeAmount = document.getElementsByClassName('income-amount')[0],
+ expensesItemTitle = document.getElementsByClassName('expenses-item-title')[0],
+ expensesAmount = document.getElementsByClassName('expenses-amount')[0],
+ additionalExpensesItem = document.getElementsByClassName('additional_expenses-item')[0],
+ depositAmount = document.getElementsByClassName('deposit-amount')[0],
+ depositPercent = document.getElementsByClassName('deposit-percent')[0],
+ targetAmount = document.getElementsByClassName('target-amount')[0],
+ periodSelect = document.getElementsByClassName('period-select')[0];
 
 let money;
 
@@ -38,7 +38,7 @@ const start = function () {
 
 start();
 
-let appData = {
+const appData = {
     budget: money,
     budgetDay: 0,
     budgetMonth: 0,
