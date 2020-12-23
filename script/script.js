@@ -60,12 +60,12 @@ const appData = {
         resultAdditionalncome.value = appData.addIncome.join(', ');
         resultTargetMmonth.value = Math.ceil(appData.getTargetMonth());
         resultlncomePeriod.value = appData.calcPeriod();
-        start.addEventListener('click', function (event) {
-            console.log(event.isTrusted);
-            if (event.isTrusted === true) {
-                periodSelect.addEventListener('change', resultlncomePeriod.value = appData.calcPeriod());
-            }
-        });
+        // start.addEventListener('click', function (event) {
+        //     console.log(event.isTrusted);
+        //     if (event.isTrusted === true) {
+        //         periodSelect.addEventListener('change', resultlncomePeriod.value = appData.calcPeriod());
+        //     }
+        // });
     },
     addIncomeBlock: function () {
         let cloneIncomeItems = incomeItems[0].cloneNode(true);
