@@ -41,9 +41,6 @@ const appData = {
     moneyDeposit: 0,
     period: 3,
     start: function () {
-        if (salaryAmount === '') {
-            return;
-        }
         appData.budget = +salaryAmount.value;
 
         appData.getExpenses();
@@ -169,9 +166,7 @@ const appData = {
 start.addEventListener('click', function () {
     if (salaryAmount !== '') {
         appData.start(); 
-    } else {
-        return;
-        }
+    } 
 });
 incomePlus.addEventListener('click', appData.addIncomeBlock);
 expensesPlus.addEventListener('click', appData.addExpensesBlock);
