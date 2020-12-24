@@ -164,7 +164,7 @@ const appData = {
 }; 
 
 start.addEventListener('click', function () {
-    if (salaryAmount !== '') {
+    if (salaryAmount.value.trim() !== '') {
         appData.start(); 
     } 
 });
