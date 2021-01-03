@@ -4,6 +4,7 @@ const isNumber = function (n) {
 };
 
 let start = document.getElementById('start'),
+    cansel = document.getElementById('cancel'),
  incomePlus = document.getElementsByTagName('button')[0],
  expensesPlus = document.getElementsByTagName('button')[1],
  depositCheck = document.querySelector('#deposit-check'),
@@ -26,9 +27,6 @@ let start = document.getElementById('start'),
  incomeItems = document.querySelectorAll('.income-items'),
  periodAmount = document.querySelector('.period-amount');
  
- let cansel = start.cloneNode(true);
- cansel.innerText = 'Сбросить';
-
 const appData = {
     budget: 0,
     budgetDay: 0,
@@ -43,7 +41,9 @@ const appData = {
     parcentDeposit: 0,
     moneyDeposit: 0,
     period: 0,
+    
     start: function () {
+        
         this.budget = +salaryAmount.value;
         
         this.getExpenses();
@@ -193,7 +193,8 @@ const appData = {
             item.disabled = true;
         });
         start.style.display = 'none';
-        start.parentNode.insertBefore(cansel, start);
+        cansel.style.display = 'block';
+        
 
         cansel.addEventListener('click', function () {
             document.querySelectorAll('.data input').forEach(function (item) {
@@ -201,13 +202,13 @@ const appData = {
                 item.value = '';
                 cansel.style.display = 'none';
                 start.style.display = 'inline-block';
+                _this.reset();
             });
 
             document.querySelectorAll('.result input').forEach(function (item) {
-                item.value = '';
+                item.value = '';   
             });
             
-            _this.reset();
         });
         this.budget= 0;
         this.budgetDay= 0;
