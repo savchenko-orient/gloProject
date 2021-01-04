@@ -3,29 +3,31 @@ const isNumber = function (n) {
     return !isNaN(parseFloat(n)) && isFinite(n);
 };
 
-let start = document.getElementById('start'),
+const start = document.getElementById('start'),
     cansel = document.getElementById('cancel'),
- incomePlus = document.getElementsByTagName('button')[0],
- expensesPlus = document.getElementsByTagName('button')[1],
- depositCheck = document.querySelector('#deposit-check'),
- additionalIncomeItem = document.querySelectorAll('.additional_income-item'),
- resultBudgetMonth = document.getElementsByClassName('budget_month-value')[0],
- resultBudgetDay = document.getElementsByClassName('budget_day-value')[0],
- resultExpensesMonth = document.getElementsByClassName('expenses_month-value')[0],
- resultAdditionalncome = document.getElementsByClassName('additional_income-value')[0],
- additionalExpensesValue = document.getElementsByClassName('additional_expenses-value')[0],
- resultlncomePeriod = document.getElementsByClassName('income_period-value')[0],
- resultTargetMonth = document.getElementsByClassName('target_month-value')[0],
- salaryAmount = document.getElementsByClassName('salary-amount')[0],
- expensesItemTitle = document.getElementsByClassName('expenses-item-title')[0],
- expensesItems = document.querySelectorAll('.expenses-items'),
- additionalExpensesItem = document.getElementsByClassName('additional_expenses-item')[0],
- depositAmount = document.getElementsByClassName('deposit-amount')[0],
- depositPercent = document.getElementsByClassName('deposit-percent')[0],
- targetAmount = document.getElementsByClassName('target-amount')[0],
- periodSelect = document.getElementsByClassName('period-select')[0],
- incomeItems = document.querySelectorAll('.income-items'),
- periodAmount = document.querySelector('.period-amount');
+    incomePlus = document.getElementsByTagName('button')[0],
+    expensesPlus = document.getElementsByTagName('button')[1],
+    depositCheck = document.querySelector('#deposit-check'),
+    additionalIncomeItem = document.querySelectorAll('.additional_income-item'),
+    resultBudgetMonth = document.getElementsByClassName('budget_month-value')[0],
+    resultBudgetDay = document.getElementsByClassName('budget_day-value')[0],
+    resultExpensesMonth = document.getElementsByClassName('expenses_month-value')[0],
+    resultAdditionalncome = document.getElementsByClassName('additional_income-value')[0],
+    additionalExpensesValue = document.getElementsByClassName('additional_expenses-value')[0],
+    resultlncomePeriod = document.getElementsByClassName('income_period-value')[0],
+    resultTargetMonth = document.getElementsByClassName('target_month-value')[0],
+    salaryAmount = document.getElementsByClassName('salary-amount')[0],
+    expensesItemTitle = document.getElementsByClassName('expenses-item-title')[0],
+    additionalExpensesItem = document.getElementsByClassName('additional_expenses-item')[0],
+    depositAmount = document.getElementsByClassName('deposit-amount')[0],
+    depositPercent = document.getElementsByClassName('deposit-percent')[0],
+    targetAmount = document.getElementsByClassName('target-amount')[0],
+    periodAmount = document.querySelector('.period-amount'),
+    periodSelect = document.getElementsByClassName('period-select')[0];
+
+let incomeItems = document.querySelectorAll('.income-items'),
+    expensesItems = document.querySelectorAll('.expenses-items');
+ 
  
 const appData = {
     budget: 0,
@@ -66,7 +68,7 @@ const appData = {
         resultTargetMonth.value = Math.ceil(this.getTargetMonth());
         resultlncomePeriod.value = this.calcPeriod();
         periodSelect.addEventListener('input', function () {
-            resultlncomePeriod.value = appData.budgetMonth.bind(appData) * periodAmount.innerText;
+            resultlncomePeriod.value = this.budgetMonth.bind(appData) * periodAmount.innerText;
         });
     },
     addIncomeBlock: function () {
