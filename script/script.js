@@ -43,8 +43,8 @@ const appData = {
     period: 0,
     
     start: function () {
-        
-        this.budget = +salaryAmount.value;
+        if (salaryAmount.value.trim() !== '') {
+            this.budget = +salaryAmount.value;
         
         this.getExpenses();
         this.getIncome();
@@ -53,11 +53,11 @@ const appData = {
         this.getAddIncome();
         this.getBudget();
         this.showResult();
-        this.blocked();  
+        this.blocked(); 
+        }
     },
 
     showResult: function () {
-        const _this = this;
         resultBudgetMonth.value = this.budgetMonth;
         resultBudgetDay.value = this.budgetDay;
         resultExpensesMonth.value = this.expensesMonth;
@@ -66,7 +66,7 @@ const appData = {
         resultTargetMonth.value = Math.ceil(this.getTargetMonth());
         resultlncomePeriod.value = this.calcPeriod();
         periodSelect.addEventListener('input', function () {
-            resultlncomePeriod.value = _this.budgetMonth * periodAmount.innerText;
+            resultlncomePeriod.value = appData.budgetMonth.bind(appData) * periodAmount.innerText;
         });
     },
     addIncomeBlock: function () {
@@ -222,15 +222,11 @@ const appData = {
         this.deposit= false;
         this.parcentDeposit= 0;
         this.moneyDeposit= 0;
-        this.period= 0;
-    }
-}; 
+        this.period = 0; 
+    }  
+};
 
-start.addEventListener('click', function () {
-    if (salaryAmount.value.trim() !== '') {
-        appData.start(); 
-    } 
-});
-incomePlus.addEventListener('click', appData.addIncomeBlock);
-expensesPlus.addEventListener('click', appData.addExpensesBlock);
-periodSelect.addEventListener('input', appData.changePeriodValue);
+start.addEventListener('click', appData.start.bind(appData));
+incomePlus.addEventListener('click', appData.addIncomeBlock.bind(appData));
+expensesPlus.addEventListener('click', appData.addExpensesBlock.bind(appData));
+periodSelect.addEventListener('input', appData.changePeriodValue.bind(appData));
