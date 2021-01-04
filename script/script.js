@@ -68,7 +68,7 @@ const appData = {
         resultTargetMonth.value = Math.ceil(this.getTargetMonth());
         resultlncomePeriod.value = this.calcPeriod();
         periodSelect.addEventListener('input', function () {
-            resultlncomePeriod.value = this.budgetMonth.bind(appData) * periodAmount.innerText;
+            resultlncomePeriod.value = this.budgetMonth.bind(this) * periodAmount.innerText;
         });
     },
     addIncomeBlock: function () {
