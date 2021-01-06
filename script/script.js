@@ -202,14 +202,17 @@ class AppData {
         resultInput.forEach( item => {
             item.value = '';
         });
-        for (let i = 1; i < incomeItems.length; i++){
-            incomeItems[i].parentNode.removeChild(incomeItems[i]);
-            incomePlus.style.display = 'block';
-        }
+        expensesPlus.disabled = false;
+        incomePlus.disabled = false;
         for (let i = 1; i < expensesItems.length; i++){
             expensesItems[i].parentNode.removeChild(expensesItems[i]);
             expensesPlus.style.display = 'block';
         }
+        for (let i = 1; i < incomeItems.length; i++){
+            incomeItems[i].parentNode.removeChild(incomeItems[i]);
+            incomePlus.style.display = 'block';
+        }
+        
         this.budget= 0;
         this.budgetDay= 0;
         this.budgetMonth= 0;
@@ -261,7 +264,7 @@ class AppData {
 
 const appData = new AppData();
 appData.eventListeners();
-console.log(document.querySelectorAll('.data input[type=text]'));
+
 
 
 
