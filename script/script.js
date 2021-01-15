@@ -205,11 +205,11 @@ class AppData {
         expensesPlus.disabled = false;
         incomePlus.disabled = false;
         for (let i = 1; i < expensesItems.length; i++){
-            expensesItems[i].parentNode.removeChild(expensesItems[i]);
+            expensesItems[i].remove(expensesItems[i]);
             expensesPlus.style.display = 'block';
         }
         for (let i = 1; i < incomeItems.length; i++){
-            incomeItems[i].parentNode.removeChild(incomeItems[i]);
+            incomeItems[i].remove(incomeItems[i]);
             incomePlus.style.display = 'block';
         }
         
