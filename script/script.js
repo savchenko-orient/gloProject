@@ -67,8 +67,6 @@ class AppData {
             if (!isNumber(depositPercent.value)) {
                 alert('В графе "Процент" нужно ввести число в диапазоне от 1 до 100');
                 return;
-                } else if (depositPercent.value >= 100) {
-                    depositPercent.value = 100;
                 }
         }
         this.getBudget();
@@ -305,6 +303,11 @@ class AppData {
         cansel.addEventListener('click', this.reset);
 
         depositCheck.addEventListener('change', this.depositHandler.bind(this));
+        depositPercent.addEventListener('input', () => {
+            if (depositPercent.value >= 100) {
+                depositPercent.value = 100;
+            }
+        });
     }
 }
 
