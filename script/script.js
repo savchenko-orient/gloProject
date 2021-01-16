@@ -64,15 +64,16 @@ class AppData {
         this.getAddIncome();
         this.getInfoDeposit();
         if (depositCheck.checked === true) {
-            if (depositPercent.value >= 100 || !isNumber(depositPercent.value)) {
+            if (!isNumber(depositPercent.value)) {
                 alert('В графе "Процент" нужно ввести число в диапазоне от 1 до 100');
                 return;
-            }
+                } else if (depositPercent.value >= 100) {
+                    depositPercent.value = 100;
+                }
         }
         this.getBudget();
         this.showResult();
         this.blocked();
-    
     }
 
     blocked() {
@@ -212,14 +213,12 @@ class AppData {
     changePercent() {
         const valueSelect = this.value;
         if (valueSelect === 'other') {
-            depositPercent.style.display = 'inline-block';
-            
+            depositPercent.value = '';
+            depositPercent.style.display = 'inline-block';   
         } else {
             depositPercent.value = valueSelect;
             depositPercent.style.display = 'none';
         }
-
-        
     }
 
     depositHandler() {
